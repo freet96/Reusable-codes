@@ -5,12 +5,18 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: " A command that print the workflow id"
+    parameters:  # version 1 of  achieving the below code
+      to:
+        type: string
+        default: $CIRCLE_WORKFLOW_ID
+    steps:
+      - run: echo << parameters.to >>
     #parameters:
      # to:
       #  type: string
        # default: $CIRCLE_WORKFLOW_ID
-    steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
+    #steps:
+      #- run: echo ${CIRCLE_WORKFLOW_ID}
 
 
 # Define a job to be invoked later in a workflow.
